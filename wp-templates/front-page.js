@@ -24,7 +24,13 @@ export default function Component(props) {
       />
 
       <main className="container">
-        <EntryHeader title="Welcome to the Faust Scaffold Blueprint" />
+        <EntryHeader title={props.data.nodeByUri.title} />
+
+        <section
+          style={{ textAlign: "center", marginTop: 0, marginBottom: "36px" }}
+        >
+          <p style={{ marginTop: 0 }}>{props.data.nodeByUri.modified}</p>
+        </section>
 
         <section className={style.cardGrid}>
           <Link
@@ -84,5 +90,11 @@ Component.query = gql`
   ${Header.fragments.entry}
   query GetHomePage {
     ...HeaderFragment
+    nodeByUri(uri: "/") {
+      ... on Page {
+        title
+        modified
+      }
+    }
   }
 `;
