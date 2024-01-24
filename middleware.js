@@ -27,7 +27,7 @@ export async function middleware(request) {
   // Set a new response header `cdn-cache-control`
   response.headers.set(
     "cdn-cache-control",
-    "stale-while-revalidate=600 stale-if-error=600"
+    "stale-while-revalidate=60 stale-if-error=60"
   );
   return response;
 }
