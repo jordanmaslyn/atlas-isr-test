@@ -11,7 +11,7 @@ export async function getStaticProps(ctx) {
     process.env.NEXT_PHASE !== PHASE_PRODUCTION_BUILD
   ) {
     const startTime = Date.now();
-    console.log("sleeping... ");
+    console.log("sleeping for now... ");
     await new Promise((r) => setTimeout(r, 60000));
     console.log(
       "finished sleeping; revalidating... (" +
